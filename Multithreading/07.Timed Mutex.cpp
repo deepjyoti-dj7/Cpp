@@ -1,5 +1,4 @@
 // TOPIC: Timed Mutex In C++ Threading (std::timed_mutex)
-// We have learned Mutex, Race Condition, Critical Section in previous video.
 
 // NOTES:
 // 0. std::timed_mutex is blocked till timeout_time or the lock is aquired and returns true if success 
