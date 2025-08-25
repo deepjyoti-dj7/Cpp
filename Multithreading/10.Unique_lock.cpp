@@ -29,7 +29,7 @@ int buffer = 0;
 
 void task(const char* threadNumber, int loopFor) {
 	std::unique_lock<mutex> lock(m1); // Automatically calls lock on mutex m1
-	for(int i=0; i<loopFor; ++i){
+	for(int i = 0; i < loopFor; i++){
 		buffer++;
 		cout << threadNumber << buffer << endl;
 	}
@@ -50,7 +50,7 @@ int main() {
 void task(const char* threadNumber, int loopFor) {
 	std::unique_lock<mutex> lock(m1, std::defer_lock); // Does not call lock on mutex m1, because used defer_lock
 	lock.lock();  // But then we will have to explicitly tell to lock when ever we want to lock mutex m1.
-	for(int i=0; i<loopFor; ++i){
+	for(int i = 0; i < loopFor; i++){
 		buffer++;
 		cout << threadNumber << buffer << endl;
 	}
@@ -72,7 +72,7 @@ int main() {
 void task_adopt(const char* threadNumber) {
     m1.lock();  // manually lock first
     std::unique_lock<mutex> lock(m1, std::adopt_lock); // adopt ownership
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; i++) {
         buffer++;
         cout << threadNumber << buffer << endl;
     }
@@ -97,7 +97,7 @@ int main() {
 void task_try(const char* threadNumber) {
     std::unique_lock<mutex> lock(m1, std::try_to_lock);
     if (lock.owns_lock()) { // check if we actually got the lock
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < 5; i+++) {
             buffer++;
             cout << threadNumber << buffer << endl;
             this_thread::sleep_for(chrono::milliseconds(50));
