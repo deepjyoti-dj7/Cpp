@@ -97,7 +97,7 @@ int main() {
 void task_try(const char* threadNumber) {
     std::unique_lock<mutex> lock(m1, std::try_to_lock);
     if (lock.owns_lock()) { // check if we actually got the lock
-        for (int i = 0; i < 5; i+++) {
+        for (int i = 0; i < 5; i++) {
             buffer++;
             cout << threadNumber << buffer << endl;
             this_thread::sleep_for(chrono::milliseconds(50));
