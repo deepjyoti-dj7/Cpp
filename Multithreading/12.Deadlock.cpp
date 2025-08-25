@@ -10,6 +10,7 @@ std::mutex m2;
 
 void thread1() {
     m1.lock();
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     m2.lock();
     cout << "Critical Section Of Thread One\n";
     m1.unlock();
@@ -18,6 +19,7 @@ void thread1() {
 
 void thread2() {
     m2.lock();
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     m1.lock();
     cout << "Critical Section Of Thread Two\n";
     m2.unlock();
