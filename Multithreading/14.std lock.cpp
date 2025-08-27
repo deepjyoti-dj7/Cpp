@@ -41,7 +41,7 @@ void task_a()
 {
     while (1) {
         std::lock(m1, m2); // no deadlock with std::lock 
-        // m1.lock(); // deadlock with these 2 lines
+        // m1.lock(); // deadlock with these 2 lines and different order in task_b()
         // m2.lock();
         std::cout << "task a\n";
         m1.unlock();
@@ -52,8 +52,8 @@ void task_a()
 void task_b()
 {
     while (1) {
-        std::lock(m2, m1);
-        // m2.lock();
+        std::lock(m2, m1); // no deadlock with std::lock 
+        // m2.lock(); // deadlock with these 2 lines and different order in task_a()
         // m1.lock();
         std::cout << "task b\n";
         m2.unlock();
