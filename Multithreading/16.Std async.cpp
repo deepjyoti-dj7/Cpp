@@ -25,7 +25,7 @@
 #include <future>
 using namespace std;
 using namespace std::chrono;
-typedef long int  ull;
+typedef long int ull;
 
 ull findOdd(ull start, ull end) {
     ull OddSum = 0;
