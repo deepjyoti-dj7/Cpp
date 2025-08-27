@@ -25,7 +25,7 @@ void findOdd(std::promise<ull>&& OddSumPromise, ull start, ull end) {
 			OddSum += i;
 		}
 	}
-    OddSumPromise.set_value(OddSum);
+    OddSumPromise.set_value(OddSum);  
 }
 
 int main() {
