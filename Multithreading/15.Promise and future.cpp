@@ -20,7 +20,7 @@ typedef long int ull;
 
 void findOdd(std::promise<ull>&& OddSumPromise, ull start, ull end) {
     ull OddSum = 0;
-	for (ull i = start; i <= end; ++i){
+	for (ull i = start; i <= end; i++){
 		if (i & 1) {
 			OddSum += i;
 		}
