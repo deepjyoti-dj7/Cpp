@@ -30,7 +30,7 @@ typedef long int ull;
 ull findOdd(ull start, ull end) {
     ull OddSum = 0;
 	cout << "ThreadID of findOdd" << std::this_thread::get_id() << endl;
-	for (ull i = start; i <= end; ++i){
+	for (ull i = start; i <= end; i++){
 		if (i & 1){
 			OddSum += i;
 		}
